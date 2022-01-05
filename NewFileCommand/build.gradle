@@ -1,0 +1,30 @@
+// Copyright 2000-2021 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file.
+
+plugins {
+  id 'java'
+  id 'org.jetbrains.intellij' version '1.1.4'
+}
+
+group 'org.work'
+version '1.0'
+
+sourceCompatibility = 11
+
+repositories {
+  mavenCentral()
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+  localPath = 'c:/progs/ideaIU-2021.1.2.win'
+}
+
+buildSearchableOptions {
+  enabled = false
+}
+
+patchPluginXml {
+  version = project.version
+  sinceBuild = '203'
+  untilBuild = '212.*'
+}

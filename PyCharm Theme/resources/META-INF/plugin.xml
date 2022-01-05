@@ -1,0 +1,18 @@
+<idea-plugin>
+  <!-- based on Monokai Pro (Filter Spectrum) -->
+  <id>org.mortalis</id>
+  <name>Mortalis Theme</name>
+  <version>1.0</version>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <themeProvider id="bdc67831-307d-4e50-b48e-41df6b472291" path="/MortalisTheme.theme.json"/>
+  </extensions>
+
+</idea-plugin>

@@ -1,0 +1,31 @@
+<idea-plugin>
+
+  <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
+  <id>org.work.new_file_command_plugin</id>
+
+  <!-- Text to display as name on Preferences/Settings | Plugin page -->
+  <name>New File Command</name>
+
+  <!-- Indicate this plugin can be loaded in all IntelliJ Platform-based products. -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <!-- Text to display as description on Preferences/Settings | Plugin page -->
+  <description>
+    <![CDATA[
+      Command that shows a dialog for creating a new file
+    ]]>
+  </description>
+
+  <!-- Text to display as company information on Preferences/Settings | Plugin page -->
+  <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK</vendor>
+
+  <actions>
+    <action id="org.work.new_file_command_plugin.NewFileWorkAction"
+            class="org.work.new_file_command_plugin.NewFileWorkAction"
+            text="New File Dialog" description="New File Dialog">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <override-text place="MainMenu" text="New File Dialog"/>
+    </action>
+  </actions>
+
+</idea-plugin>
