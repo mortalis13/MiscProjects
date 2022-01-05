@@ -5,7 +5,7 @@ Sub MakeCalendar()
   
   ' Print 2 pages, 6 months on each one
   TwoPage = False
-  ' Print each month on a separate page
+  ' Print months in 2 columns
   CreateMonthsSheet = False
 
   If CreateMonthsSheet Then
@@ -27,6 +27,10 @@ Sub MakeCalendar()
   If TwoPage Then
     monthRows = 4
     monthCols = 3
+  End If
+  If CreateMonthsSheet Then
+    monthRows = 6
+    monthCols = 2
   End If
   
   ' -------------------
@@ -53,6 +57,7 @@ Sub MakeCalendar()
 
   
   ' ----------------------------------------------
+  Sheets.Add Before:=ActiveSheet
   Application.ScreenUpdating = False
   Cells.ClearContents
   Cells.ClearFormats
@@ -278,10 +283,10 @@ Sub MakeCalendar()
     With ActiveSheet.PageSetup
       .LeftMargin = Application.CentimetersToPoints(0.5)
       .RightMargin = Application.CentimetersToPoints(0.5)
-      .TopMargin = Application.InchesToPoints(0)
-      .BottomMargin = Application.InchesToPoints(0)
-      .HeaderMargin = Application.InchesToPoints(0)
-      .FooterMargin = Application.InchesToPoints(0)
+      .TopMargin = 0
+      .BottomMargin = 0
+      .HeaderMargin = 0
+      .FooterMargin = 0
       .CenterHorizontally = True
       .CenterVertically = True
       .Orientation = xlLandscape
@@ -309,14 +314,18 @@ Sub MakeCalendar()
   
   If CreateMonthsSheet And Not HexValues Then
     With ActiveSheet.PageSetup
-      .Zoom = 150
-      .TopMargin = Application.CentimetersToPoints(2)
+      .Zoom = 130
       .CenterHorizontally = True
       .CenterVertically = False
+      .TopMargin = 0
+      .BottomMargin = 0
+      .LeftMargin = 0
+      .RightMargin = 0
+      .HeaderMargin = 0
+      .FooterMargin = 0
     End With
     
-    ActiveSheet.HPageBreaks.Add Cells(firstRow + 1 * rowsInMonth, 1)
     ActiveSheet.HPageBreaks.Add Cells(firstRow + 2 * rowsInMonth, 1)
-    ActiveSheet.VPageBreaks.Add Cells(1, firstCol + 2 * colsInMonth)
+    ActiveSheet.HPageBreaks.Add Cells(firstRow + 4 * rowsInMonth, 1)
   End If
 End Sub
