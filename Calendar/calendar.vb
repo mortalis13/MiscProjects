@@ -149,6 +149,7 @@ Sub MakeCalendar()
         .VerticalAlignment = xlCenter
         .Font.Size = 14
         .RowHeight = 25
+        .NumberFormat = "@"
       End With
 
       If HexValues Then
@@ -188,9 +189,9 @@ Sub MakeCalendar()
           CurDay = CurDay + 1
           cell.Value = CurDay
           If HexValues Then
-            hex_ = "0x"
+            hex_ = ""
             If CurDay < 16 Then
-              hex_ = "0x0"
+              hex_ = "0"
             End If
             cell.Value = hex_ & Hex(CurDay)
           End If
